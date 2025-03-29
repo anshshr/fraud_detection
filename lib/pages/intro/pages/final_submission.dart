@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fraud_detection/pages/intro/pages/page_controller.dart';
+import 'package:fraud_detection/widgets/bottom_nav_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class FinalSubmissionPage extends StatefulWidget {
+  FinalSubmissionPage({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  _FinalSubmissionPageState createState() => _FinalSubmissionPageState();
 }
 
-class _ProfileState extends State<Profile> {
+class _FinalSubmissionPageState extends State<FinalSubmissionPage> {
   Map<String, String> userDetails = {};
-  User? user;
 
   @override
   void initState() {
     super.initState();
-    user = FirebaseAuth.instance.currentUser;
-    _loadUserDetails(); // Load user details from SharedPreferences
+    _loadUserDetails();
   }
 
-  // Method to load user details from SharedPreferences
   void _loadUserDetails() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -29,8 +27,7 @@ class _ProfileState extends State<Profile> {
         'Account Number': prefs.getString('Account Number') ?? '',
         'IFSC Code': prefs.getString('IFSC Code') ?? '',
         'Branch': prefs.getString('Branch') ?? '',
-        'Village': prefs.getString('Village') ?? '',
-        'District': prefs.getString('District') ?? '',
+        'Address': prefs.getString('Address') ?? '',
         'State': prefs.getString('State') ?? '',
         'Country': prefs.getString('Country') ?? '',
         'Postal Code': prefs.getString('Postal Code') ?? '',
@@ -76,37 +73,10 @@ class _ProfileState extends State<Profile> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Profile Image
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage:
-                          user?.photoURL != null
-                              ? NetworkImage(user!.photoURL!)
-                              : const AssetImage('assets/default_profile.png')
-                                  as ImageProvider,
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      user?.displayName ?? "User Name",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      user?.email ?? "user@example.com",
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                    ),
-                    const SizedBox(height: 30),
                     const Text(
-                      "Account Details",
+                      "Final Submission",
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.green,
                       ),
@@ -141,6 +111,34 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     const SizedBox(height: 30),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BottomNavBar(),
+                          ),
+                        ); // Redirect to Homepage
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                          horizontal: 20,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        "Submit & Go to Home",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

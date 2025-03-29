@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fraud_detection/pages/multilingual_chat_bot/pages/record_audio.dart';
 import 'package:fraud_detection/services/percnetage_pie_chart.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,6 +12,12 @@ class HomePage extends StatelessWidget {
       body: Stack(
         children: [
           PercentagePieChart(percentage: 20),
+          ElevatedButton(
+            onPressed: () {
+              
+            },
+            child: Text("send notification"),
+          ),
           InkWell(
             onTap: () {
               Navigator.push(

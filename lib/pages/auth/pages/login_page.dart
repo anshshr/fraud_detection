@@ -25,7 +25,6 @@ class Login extends StatelessWidget {
       backgroundColor: Colors.black, // Dark theme background
       body: Stack(
         children: [
-          // Background Gradient
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(

@@ -10,13 +10,8 @@ plugins {
 
 android {
     namespace = "com.example.fraud_detection"
-<<<<<<< HEAD
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.0.13004108"
-=======
-    compileSdk = 33
-    ndkVersion = "27.0.12077973"
->>>>>>> 3b3b94398fbfb38deb34961f70b25a9060febffd
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -32,11 +27,7 @@ android {
         applicationId = "com.example.fraud_detection"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-<<<<<<< HEAD
         minSdk = 23
-=======
-        minSdk = 21
->>>>>>> 3b3b94398fbfb38deb34961f70b25a9060febffd
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "63428814218",
+    "project_id": "frauddetection-9a31d",
+    "storage_bucket": "frauddetection-9a31d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63428814218:android:f1e6a70400941d74129473",
+        "android_client_info": {
+          "package_name": "com.example.fraud_detection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63428814218-1rr2g8no3h5uui73lsf0o2e9omo1hkmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fraud_detection",
+            "certificate_hash": "b74878f62f58107850bd2f2028c38b50ecf76d62"
+          }
+        },
+        {
+          "client_id": "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbhRK9DYTVsbMf6pAy3z1PNDjHPZIu2SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

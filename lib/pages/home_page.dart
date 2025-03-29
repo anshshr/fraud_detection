@@ -8,7 +8,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Risk Page")),
       body: Stack(
         children: [
           PercentagePieChart(percentage: 20),

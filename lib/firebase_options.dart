@@ -89,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'frauddetection-9a31d.firebasestorage.app',
     measurementId: 'G-GT2YZND3N8',
   );
+
 }

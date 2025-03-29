@@ -38,24 +38,3 @@ Future<String> fetchGroqResponse(String message) async {
     return e.toString();
   }
 }
-
-// import 'package:groq/groq.dart';
-
-// Future<String> fetchGroqResponse(String message) async {
-//   const String apiKey =
-//       "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";
-//   final groq = Groq(apiKey: apiKey, model: "qwen-2.5-coder-32b");
-//   print("entered groq");
-
-//   groq.startChat();
-//   try {
-//     groq.setCustomInstructionsWith(
-//       "You are a helpful assistant who always responds in a friendly, concise manner.give the appropriate , clear and concise answer in the given language only",
-//     );
-//     GroqResponse response = await groq.sendMessage("Hello, how are you?");
-//     print(response.choices.first.message.content);
-//     return response.choices.first.message.content;
-//   } catch (e) {
-//     return e.toString();
-//   }
-// }

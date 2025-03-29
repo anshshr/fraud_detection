@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fraud_detection/pages/multilingual_chat_bot/pages/record_audio.dart';
+import 'package:fraud_detection/services/percnetage_pie_chart.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,6 +11,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: Text("Risk Page")),
       body: Stack(
         children: [
+          PercentagePieChart(percentage: 20),
           InkWell(
             onTap: () {
               Navigator.push(

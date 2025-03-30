@@ -6,13 +6,13 @@ Future<void> sendPushNotification(String message) async {
 
   final Map<String, String> headers = {
     "Authorization":
-        "basic os_v2_app_frso3ldapvdfpn5nyimtop5ojf2tmtj4tkhublmnj4zjmjerpbu4hmb5gggivjnvaragrexknibxskdlfcbrbr5iuvrhn4bwrj3ylfq", // 🔥 Replace with your API Key
+        "basic os_v2_app_ek3l54vxvzh7bkdtc3eujfl6lan5b2suwkke63vgkntrpptr4uyn7kq35oumcygm6vm7yd7sdooq6a3zaeq7okb4ios4vq7zof24hfy", // 🔥 Replace with your API Key
     "Content-Type": "application/json",
   };
 
   final Map<String, dynamic> body = {
     "app_id":
-        "2c64edac-607d-4657-b7ad-c219373fae49", // 🔥 Replace with your OneSignal App ID
+        "22b6bef2-b7ae-4ff0-a873-16c944957e58", // 🔥 Replace with your OneSignal App ID
     "contents": {"en": message}, // Notification message
     "included_segments": ["All"], // 🔥 Replace with your segment
   };
@@ -35,5 +35,5 @@ Future<void> sendPushNotification(String message) async {
 }
 
 void main() {
-  sendPushNotification("🚀 New event triggered! Check it out.");
+  sendPushNotification("this is hii from ansh");
 }

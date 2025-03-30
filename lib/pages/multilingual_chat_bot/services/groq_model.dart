@@ -2,39 +2,47 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<String> fetchGroqResponse(String message) async {
+  // Replace with a valid API key (check at https://console.groq.com/keys)
   const String apiKey =
-      "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";
+      "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";
   const String url = "https://api.groq.com/openai/v1/chat/completions";
-  print("entered groq");
+
   try {
-    var response = await http.post(
+    final response = await http.post(
       Uri.parse(url),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer $apiKey",
+        "Authorization": "Bearer $apiKey", // Ensure no extra spaces
       },
       body: jsonEncode({
-        "model": "llama-3.3-70b-versatile",
+        "model": "llama3-8b-8192", // Updated model name
         "messages": [
           {
-            "role": "user",
+            "role": "system", // Use "system" for instructions
             "content":
-                "$message Provide a clear, concise, and language-consistent response that is suitable for text-to-speech applications. Ensure that the response is generated in the same language in which the question is asked.",
+                "Provide a clear, concise, and language-consistent response that is suitable for text-to-speech applications. Respond in the same language as the user's question.",
+          },
+          {
+            "role": "user", // User message separate from instructions
+            "content": message,
           },
         ],
+        "temperature": 0.7, // Added for better control
+        "max_tokens": 1024, // Prevent excessively long responses
       }),
     );
 
+    print("Status Code: ${response.statusCode}"); // Debugging
+    print("Response Body: ${response.body}"); // Debugging
+
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print(data["choices"][0]["message"]["content"]);
-      String ans = data["choices"][0]["message"]["content"];
-      return ans;
+      return data["choices"][0]["message"]["content"];
     } else {
-      print("Error: ${response.body}");
-      return "error";
+      throw Exception("API Error: ${response.statusCode} - ${response.body}");
     }
   } catch (e) {
-    return e.toString();
+    print("Error in fetchGroqResponse: $e");
+    return "Sorry, I couldn't process your request. Please try again.";
   }
 }

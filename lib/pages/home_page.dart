@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fraud_detection/pages/multilingual_chat_bot/pages/record_audio.dart';
 import 'package:fraud_detection/services/percnetage_pie_chart.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,15 +8,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Risk Page")),
       body: Stack(
         children: [
           PercentagePieChart(percentage: 20),
-          ElevatedButton(
-            onPressed: () {
-              
-            },
-            child: Text("send notification"),
-          ),
           InkWell(
             onTap: () {
               Navigator.push(
@@ -29,23 +23,20 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.only(right: 10.0),
               child: Align(
                 alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        alignment: Alignment.topCenter,
-                        image: NetworkImage(
-                          'https://www.shutterstock.com/image-illustration/3d-illustration-little-robot-fat-260nw-1640636815.jpg',
-                        ),
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    image: const DecorationImage(
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      image: NetworkImage(
+                        'https://www.shutterstock.com/image-illustration/3d-illustration-little-robot-fat-260nw-1640636815.jpg',
                       ),
-                      border: Border.all(width: 2, color: Colors.black87),
-                      borderRadius: BorderRadius.circular(40),
                     ),
+                    border: Border.all(width: 2, color: Colors.black87),
+                    borderRadius: BorderRadius.circular(40),
                   ),
                 ),
               ),

@@ -45,7 +45,7 @@ class _FinalSubmissionPageState extends State<FinalSubmissionPage> {
           // Background Image
           Positioned.fill(
             child: Image.network(
-              'https://th.bing.com/th/id/OIP.iyYZ6JRT93KJHo-2axvlVwHaF7?rs=1&pid=ImgDetMain',
+              'https://th.bing.com/th/id/OIP.ITmGnqrUiPeOI1gn4o5ddAHaE8?rs=1&pid=ImgDetMain',
               fit: BoxFit.cover,
             ),
           ),

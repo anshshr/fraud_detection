@@ -18,23 +18,23 @@ class _IdentificationPageState extends State<IdentificationPage> {
   final TextEditingController aadhar = TextEditingController();
   final TextEditingController pan = TextEditingController();
 
-void goToNextPage() async {
-  if (aadhar.text.isNotEmpty || pan.text.isNotEmpty) {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString('Aadhar', aadhar.text);
-    prefs.setString('PAN', pan.text);
+  void goToNextPage() async {
+    if (aadhar.text.isNotEmpty || pan.text.isNotEmpty) {
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('Aadhar', aadhar.text);
+      prefs.setString('PAN', pan.text);
 
-    widget.onNext({'Aadhar': aadhar.text, 'PAN': pan.text});
-    widget.controller.nextPage(
-      duration: Duration(milliseconds: 300),
-      curve: Curves.ease,
-    );
+      widget.onNext({'Aadhar': aadhar.text, 'PAN': pan.text});
+      widget.controller.nextPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
+    }
   }
-}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           // Background Image
@@ -42,7 +42,7 @@ void goToNextPage() async {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  'https://th.bing.com/th/id/OIP.iyYZ6JRT93KJHo-2axvlVwHaF7?rs=1&pid=ImgDetMain',
+                  'https://th.bing.com/th/id/OIP.ITmGnqrUiPeOI1gn4o5ddAHaE8?rs=1&pid=ImgDetMain',
                 ),
                 fit: BoxFit.cover,
               ),

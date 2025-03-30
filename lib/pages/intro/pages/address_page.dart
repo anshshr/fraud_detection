@@ -54,7 +54,7 @@ class _AddressPageState extends State<AddressPage> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  'https://th.bing.com/th/id/OIP.iyYZ6JRT93KJHo-2axvlVwHaF7?rs=1&pid=ImgDetMain',
+                  'https://th.bing.com/th/id/OIP.ITmGnqrUiPeOI1gn4o5ddAHaE8?rs=1&pid=ImgDetMain',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -72,7 +72,8 @@ class _AddressPageState extends State<AddressPage> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   elevation: 2,
-                  color: Colors.white.withOpacity(0.75),
+                  // ignore: deprecated_member_use
+                  color: Colors.white.withOpacity(0.9),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(

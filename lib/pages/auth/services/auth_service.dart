@@ -30,10 +30,6 @@ class AuthService {
       );
 
       await _auth.signInWithCredential(credential);
-      firestore.collection("users").doc(_auth.currentUser!.uid).set({
-        "email": _auth.currentUser!.email,
-        "userId": _auth.currentUser!.uid,
-      });
       onSuccess();
     } catch (e) {
       log("Error during Google Sign-In: $e", name: "AuthService");

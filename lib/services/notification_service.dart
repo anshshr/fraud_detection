@@ -14,7 +14,9 @@ Future<void> sendPushNotification(String message) async {
     "app_id":
         "2c64edac-607d-4657-b7ad-c219373fae49", // 🔥 Replace with your OneSignal App ID
     "contents": {"en": message}, // Notification message
+    "headings": {"en": "New Report Available"},
     "included_segments": ["All"], // 🔥 Replace with your segment
+    "data": {"reportDetails": "true"},
   };
 
   try {

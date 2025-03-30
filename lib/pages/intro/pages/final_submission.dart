@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fraud_detection/pages/intro/pages/page_controller.dart';
 import 'package:fraud_detection/widgets/bottom_nav_bar.dart';
@@ -12,6 +13,7 @@ class FinalSubmissionPage extends StatefulWidget {
 
 class _FinalSubmissionPageState extends State<FinalSubmissionPage> {
   Map<String, String> userDetails = {};
+  final firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -35,6 +37,20 @@ class _FinalSubmissionPageState extends State<FinalSubmissionPage> {
         'PAN': prefs.getString('PAN') ?? '',
       };
     });
+
+    // Store data in Firestore
+    await _storeDataInFirestore();
+  }
+
+  Future<void> _storeDataInFirestore() async {
+    try {
+      await firestore
+          .collection('userDetails')
+          .doc('user_${DateTime.now().millisecondsSinceEpoch}')
+          .set(userDetails);
+    } catch (e) {
+      print('Error storing data in Firestore: $e');
+    }
   }
 
   @override

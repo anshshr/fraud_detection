@@ -37,6 +37,13 @@
             {
               "client_id": "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "63428814218-k5apica7r12dssa14qa6skraq5i2p21u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fraudDetection"
+              }
             }
           ]
         }

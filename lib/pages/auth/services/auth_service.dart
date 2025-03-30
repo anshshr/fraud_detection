@@ -1,10 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'dart:developer';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    clientId:
+        "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
+  );
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   // Google Sign-In
@@ -32,6 +36,7 @@ class AuthService {
       });
       onSuccess();
     } catch (e) {
+      log("Error during Google Sign-In: $e", name: "AuthService");
       print("Error during Google Sign-In: $e");
       onError(e.toString());
     }

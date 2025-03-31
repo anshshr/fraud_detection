@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
 import firebase_admin
 from firebase_admin import credentials, db
-import os
 
 load_dotenv()
 

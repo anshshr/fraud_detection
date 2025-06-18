@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => BottomNavBar(),
-        "/data": (context) => DataInsightsPage(),
+        "/data": (context) => BottomNavBar(),
 
-        '/reportDetails': (context) => ReportDetails(),
+        '/reportDetails': (context) => BottomNavBar(),
       },
     );
   }

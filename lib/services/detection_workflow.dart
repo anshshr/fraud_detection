@@ -92,5 +92,26 @@ class DetectionWorkflow {
     }
   }
 
-  //5. based on the notificaion user will be redirected to generate an report and be alerted
+  //5. now convert the json retured by thre gemini compiles to string and further passed to analysis
+  Future<int> fetchRiskScore(String transactionAnalysis) async {
+    final url = Uri.parse(
+      'https://redesigned-guide-ww9q7vrj4gpf5xq5-8000.app.github.dev/calculate_risk',
+    );
+    final headers = {'Content-Type': 'application/json'};
+    final body = jsonEncode({'transaction_analysis': transactionAnalysis});
+
+    try {
+      final response = await http.post(url, headers: headers, body: body);
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+        return responseData['risk_score'];
+      } else {
+        throw Exception('Failed to fetch risk score: ${response.statusCode}');
+      }
+    } catch (e) {
+      print("Error: $e");
+      return -1; // Return -1 in case of an error
+    }
+  }
 }

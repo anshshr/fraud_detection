@@ -245,8 +245,8 @@ class _CardPaymentState extends State<CardPayment> {
                       "is_bank_operating":
                           now.hour >= 9 && now.hour <= 17 ? 1 : 0,
                       "merchant_category_label": Random().nextDouble() * 50,
-                      "city" : prefs.getString("city"),
-                      "country" : prefs.getString("country"),
+                      "city": prefs.getString("city"),
+                      "country": prefs.getString("country"),
                     };
                     print('Dummy Data: $dummy_data');
                     print('Dummy Data2: $secondApiData');
@@ -276,6 +276,11 @@ class _CardPaymentState extends State<CardPayment> {
                       dummy_data.toString(),
                       secondApiData.toString(),
                     );
+
+                    print('Fetching overall risk score...');
+                    int overall_risk_score = await detectionWorkflow
+                      .fetchRiskScore(ans.toString());
+                    print('Overall risk score fetched: $overall_risk_score');
 
                     print('Storing data in Firestore...');
                     await detectionWorkflow.storeDataInFirestore(ans);

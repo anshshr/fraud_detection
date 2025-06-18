@@ -22,7 +22,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           Positioned(
             bottom: 20,
-            right: 1,
+            right: 1
+            ,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -202,9 +203,9 @@ class TransactionDetailsPage extends StatelessWidget {
             SizedBox(
               height: 200,
               child: PercentagePieChart(
-                percentage: (double.parse(
-                  riskEvaluation["overall_risk_score"],
-                )),
+                percentage: (riskEvaluation["overall_risk_score"] is int
+                    ? riskEvaluation["overall_risk_score"].toDouble()
+                    : double.parse(riskEvaluation["overall_risk_score"])),
               ),
             ),
 

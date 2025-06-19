@@ -100,3 +100,38 @@ Future<Map<String, dynamic>> getAIResponse(
     return {"error": e.toString()};
   }
 }
+
+// Future<String> convertToFormattedString(Map<String, dynamic> data) async {
+//   String message = """
+//   You are provided with a Map<String, dynamic> data structure. Convert the data into a well-formatted string that contains all details exactly as they are. 
+//   Preserve the accuracy of all fields, numbers, and text. 
+//   Do NOT add extra details, alter the meaning, or restructure it incorrectly. 
+//   Return the response as a clean and readable string representation.
+  
+//   Here is the data: ${data}
+//   """;
+
+//   try {
+//     final model = GenerativeModel(
+//       model: 'gemini-1.5-flash-latest',
+//       apiKey: apiKey,
+//     );
+
+//     final content = [Content.text(message)];
+//     final response = await model.generateContent(content);
+
+//     // Extract and clean the response
+//     var ans = response.text?.trim();
+
+//     if (ans != null) {
+//       // Ensure no unwanted symbols (like markdown formatting)
+//       ans = ans.replaceAll("*", "").replaceAll("```", "").trim();
+//       return ans;
+//     } else {
+//       throw Exception("Response text is null");
+//     }
+//   } catch (e) {
+//     print("Error: $e");
+//     return e.toString();
+//   }
+// }

@@ -9,8 +9,8 @@ class PercentagePieChart extends StatelessWidget {
   const PercentagePieChart({
     Key? key,
     required this.percentage,
-    this.filledColor = Colors.blue,
-    this.unfilledColor = Colors.grey,
+    this.filledColor = Colors.red,
+    this.unfilledColor = Colors.green,
   }) : super(key: key);
 
   @override

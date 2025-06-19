@@ -6,8 +6,7 @@ import 'dart:developer';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
-    clientId:
-        "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
+    clientId: "63428814218-8u0crvt3b63h8uj7roh5iq118r1e2k55.apps.googleusercontent.com",
   );
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -22,19 +21,30 @@ class AuthService {
         return;
       }
 
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      await _auth.signInWithCredential(credential);
-      firestore.collection("users").doc(_auth.currentUser!.uid).set({
-        "email": _auth.currentUser!.email,
-        "userId": _auth.currentUser!.uid,
-      });
-      onSuccess();
+      final UserCredential userCredential = await _auth.signInWithCredential(credential);
+      final User? user = userCredential.user;
+      
+      if (user != null) {
+        // Store user data in Firestore
+        await firestore.collection('users').doc(user.uid).set({
+          'uid': user.uid,
+          'email': user.email,
+          'displayName': user.displayName,
+          'photoURL': user.photoURL,
+          'lastLogin': FieldValue.serverTimestamp(),
+          'createdAt': FieldValue.serverTimestamp(),
+        }, SetOptions(merge: true));
+        
+        onSuccess();
+      } else {
+        onError("User not found after sign-in");
+      }
     } catch (e) {
       log("Error during Google Sign-In: $e", name: "AuthService");
       print("Error during Google Sign-In: $e");
@@ -51,5 +61,10 @@ class AuthService {
     } catch (e) {
       return e.toString();
     }
+  }
+
+  // Get current user ID
+  String? getCurrentUserId() {
+    return _auth.currentUser?.uid;
   }
 }

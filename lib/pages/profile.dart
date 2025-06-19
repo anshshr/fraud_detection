@@ -17,28 +17,11 @@ class _ProfileState extends State<Profile> {
   void initState() {
     super.initState();
     user = FirebaseAuth.instance.currentUser;
-    _loadUserDetails(); // Load user details from SharedPreferences
+    
   }
 
   // Method to load user details from SharedPreferences
-  void _loadUserDetails() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      userDetails = {
-        'Bank Name': prefs.getString('Bank Name') ?? '',
-        'Account Number': prefs.getString('Account Number') ?? '',
-        'IFSC Code': prefs.getString('IFSC Code') ?? '',
-        'Branch': prefs.getString('Branch') ?? '',
-        'Village': prefs.getString('Village') ?? '',
-        'District': prefs.getString('District') ?? '',
-        'State': prefs.getString('State') ?? '',
-        'Country': prefs.getString('Country') ?? '',
-        'Postal Code': prefs.getString('Postal Code') ?? '',
-        'Aadhar': prefs.getString('Aadhar') ?? '',
-        'PAN': prefs.getString('PAN') ?? '',
-      };
-    });
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -93,45 +76,6 @@ class _ProfileState extends State<Profile> {
                     user?.email ?? "user@example.com",
                     style: const TextStyle(fontSize: 16, color: Colors.white70),
                   ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    "Account Details",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ...userDetails.entries.map(
-                    (entry) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${entry.key}:",
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Flexible(
-                            child: Text(
-                              entry.value,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.white70,
-                              ),
-                              textAlign: TextAlign.right,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
                 ],
               ),
             ),

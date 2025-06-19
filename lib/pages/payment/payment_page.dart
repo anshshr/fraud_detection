@@ -48,24 +48,19 @@ class _PaymentPageState extends State<PaymentPage> {
         );
       },
     );
-    await Future.delayed(Duration(seconds: 6));
-    Navigator.of(context).pop();
+    // await Future.delayed(Duration(seconds: 6));
+    // Navigator.of(context).pop();
 
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-      (route) => false,
-    );
+    // Navigator.pushAndRemoveUntil(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => HomePage()),
+    //   (route) => false,
+    // );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('PAYMENT PAGE'),
-        backgroundColor: Colors.deepPurple[100],
-        centerTitle: true,
-      ),
       body: Container(
         padding: EdgeInsets.only(top: 10),
         height: double.infinity,

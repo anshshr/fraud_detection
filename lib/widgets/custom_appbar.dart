@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fraud_detection/pages/auth/pages/login_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -23,13 +24,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
     await GoogleSignIn().signOut(); // Ensure user can pick a new account
 
     if (mounted) {
-      // Navigator.pushAndRemoveUntil(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => SplashScreen(),
-      //   ), // Redirect to login
-      //   (route) => false, // Clear navigation stack
-      // );
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => Login()), // Redirect to login
+        (route) => false, // Clear navigation stack
+      );
     }
   }
 

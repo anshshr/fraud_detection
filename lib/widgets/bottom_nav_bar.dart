@@ -26,9 +26,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             _currentIndex = index;
           });
         },
-        backgroundColor: Colors.black, // Black background for the navbar
-        selectedItemColor: Colors.green.shade600, // Green800 for selected items
-        unselectedItemColor: Colors.white, // White for unselected items
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.green.shade600,
+        unselectedItemColor: Colors.white,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
         items: const [

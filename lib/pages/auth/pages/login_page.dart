@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:fraud_detection/pages/auth/services/auth_service.dart';
-import 'package:fraud_detection/pages/intro/pages/page_controller.dart';
+
 import 'package:fraud_detection/widgets/bottom_nav_bar.dart';
 
 class Login extends StatelessWidget {
@@ -11,7 +11,7 @@ class Login extends StatelessWidget {
   void _navigateToDashboard(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => PageControllerScreen()),
+      MaterialPageRoute(builder: (context) => BottomNavBar()),
     );
   }
 
@@ -22,7 +22,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Dark theme background
+      backgroundColor: Colors.black, 
       body: Stack(
         children: [
           Positioned.fill(
